@@ -444,6 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createInputField: {fileID: 577096031}
   joinInputField: {fileID: 1031726743}
+  levelToLoad: SampleScene
 --- !u!4 &343888139
 Transform:
   m_ObjectHideFlags: 0

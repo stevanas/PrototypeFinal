@@ -9,6 +9,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
     public TMP_InputField createInputField;
     public TMP_InputField joinInputField;
+    public string levelToLoad;
 
     public void CreateRoom()
     {
@@ -21,6 +22,6 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("SampleScene");
+        PhotonNetwork.LoadLevel(levelToLoad);
     }
 }

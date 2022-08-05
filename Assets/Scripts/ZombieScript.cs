@@ -1,4 +1,5 @@
 using DG.Tweening;
+using MoreMountains.Feedbacks;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,11 +16,14 @@ public class ZombieScript : Damageable
     float lastAttack = 0;
     public int damage = 1;
 
-
+    //Feedbacks
+    public MMF_Player damagePlayer;
+    public MMF_Player walkerPlayer;
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         target = GameManager.instance.players[Random.Range(0, GameManager.instance.players.Count)];
+        walkerPlayer.PlayFeedbacks();
         //healthBar.maxValue = health;
     }
     private void Update()
@@ -52,6 +56,7 @@ public class ZombieScript : Damageable
     void ReceiveDamageRPC(int damage)
     {
         Debug.Log(gameObject + " received " + damage + " damage.");
+        damagePlayer.PlayFeedbacks();
         health -= damage;
         healthBar
             .DOValue(health, 0.3f);
